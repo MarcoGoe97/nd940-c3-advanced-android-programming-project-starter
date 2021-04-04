@@ -27,10 +27,10 @@ class DetailActivity : AppCompatActivity() {
 
             when(extras.getString(Constants.STATUS)) {
                 getString(R.string.download_success) -> {
-                    tvStatusDescription.setTextColor(resources.getColor(R.color.green))
+                    tvStatusDescription.setTextColor(resources.getColor(R.color.green, theme))
                 }
                 else -> {
-                    tvStatusDescription.setTextColor(resources.getColor(R.color.colorAccent))
+                    tvStatusDescription.setTextColor(resources.getColor(R.color.colorAccent, theme))
                 }
             }
         }

@@ -7,7 +7,7 @@ import android.graphics.Paint
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
-import androidx.core.content.ContextCompat
+import androidx.core.content.withStyledAttributes
 import kotlin.properties.Delegates
 
 class LoadingButton @JvmOverloads constructor(
@@ -19,6 +19,11 @@ class LoadingButton @JvmOverloads constructor(
     private var textYPos = 0f
     private var progress = 0
     private var degrees = 0
+
+    private var buttonBackgroundColor = 0
+    private var buttonTextColor = 0
+    private var buttonProgressColor = 0
+    private var buttonProgressColor2 = 0
 
     private val paint = TextPaint(Paint.ANTI_ALIAS_FLAG or Paint.SUBPIXEL_TEXT_FLAG).apply {
         textAlign = Paint.Align.CENTER
@@ -66,6 +71,13 @@ class LoadingButton @JvmOverloads constructor(
 
     init {
         isClickable = true
+
+        context.withStyledAttributes(attrs, R.styleable.LoadingButton) {
+            buttonBackgroundColor = getColor(R.styleable.LoadingButton_buttonBackgroundColor, 0)
+            buttonProgressColor = getColor(R.styleable.LoadingButton_buttonProgressColor, 0)
+            buttonProgressColor2 = getColor(R.styleable.LoadingButton_buttonProgressColor2, 0)
+            buttonTextColor = getColor(R.styleable.LoadingButton_buttonTextColor, 0)
+        }
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -78,18 +90,18 @@ class LoadingButton @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        canvas?.drawColor(ContextCompat.getColor(context, R.color.colorAccent))
+        canvas?.drawColor(buttonBackgroundColor)
 
-        paint.color = context.getColor(R.color.colorPrimaryDark)
+        paint.color = buttonProgressColor
         canvas?.drawRect(0f, 0f, progress.toFloat(), heightSize.toFloat(), paint)
 
-        paint.color= context.getColor(R.color.white)
+        paint.color = buttonProgressColor2
         canvas?.drawArc(
             (widthSize - 200f), (heightSize / 2) - 50f, (widthSize - 100f),
             (heightSize / 2) + 50f, 0F, degrees.toFloat(), true, paint
         )
 
-        paint.color = context.getColor(R.color.white)
+        paint.color = buttonTextColor
         val buttonText = when(buttonState) {
             ButtonState.Loading -> context.getString(R.string.button_loading)
             else -> context.getString(R.string.button_name)

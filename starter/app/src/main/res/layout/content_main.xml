@@ -72,6 +72,10 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="@dimen/margin_large"
+        app:buttonBackgroundColor="@color/colorAccent"
+        app:buttonProgressColor="@color/colorPrimaryDark"
+        app:buttonProgressColor2="@color/white"
+        app:buttonTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

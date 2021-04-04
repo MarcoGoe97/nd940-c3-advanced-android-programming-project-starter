@@ -30,7 +30,7 @@ class DetailActivity : AppCompatActivity() {
                     tvStatusDescription.setTextColor(resources.getColor(R.color.green))
                 }
                 else -> {
-                    tvStatusDescription.setTextColor(resources.getColor(R.color.colorPrimaryDark))
+                    tvStatusDescription.setTextColor(resources.getColor(R.color.colorAccent))
                 }
             }
         }

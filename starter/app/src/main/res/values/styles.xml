@@ -17,4 +17,16 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Base.Widget.AppCompat.CompoundButton.RadioButton.StyledRadioButton">
+        <item name="android:textSize">@dimen/default_text_size</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+    <style name="Base.Widget.AppCompat.TextView.Title">
+        <item name="android:textSize">@dimen/text_size_title</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
 </resources>

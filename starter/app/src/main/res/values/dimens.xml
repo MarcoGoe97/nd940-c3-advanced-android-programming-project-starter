@@ -1,5 +1,11 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
-    <dimen name="default_text_size">20sp</dimen>
+    <dimen name="margin_tiny">4dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_large">20dp</dimen>
+
+    <dimen name="default_text_size">18sp</dimen>
+    <dimen name="text_size_title">24sp</dimen>
 </resources>

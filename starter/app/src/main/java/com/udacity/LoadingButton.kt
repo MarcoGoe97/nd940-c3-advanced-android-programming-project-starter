@@ -38,7 +38,7 @@ class LoadingButton @JvmOverloads constructor(
         when(new) {
             ButtonState.Loading -> {
                 circleAnimator = ValueAnimator.ofInt(0, widthSize).apply {
-                    duration = 500
+                    duration = 1000
                     addUpdateListener { animator ->
                         progress = animatedValue as Int
                         animator.repeatCount = ValueAnimator.INFINITE
@@ -49,7 +49,7 @@ class LoadingButton @JvmOverloads constructor(
                 }
 
                 rectAnimator = ValueAnimator.ofInt(0, 360).apply {
-                    duration = 500
+                    duration = 1000
                     addUpdateListener { animator ->
                         degrees = animatedValue as Int
                         animator.repeatCount = ValueAnimator.INFINITE

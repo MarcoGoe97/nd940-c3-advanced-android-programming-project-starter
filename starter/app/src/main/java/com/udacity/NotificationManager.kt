@@ -8,17 +8,7 @@ import android.os.Bundle
 import androidx.core.app.NotificationCompat
 
 fun NotificationManager.sendNotification(id: Int, messageBody: String, detailsBundle: Bundle, applicationContext: Context) {
-    //Normal click action opens MainActivity
-    val contentIntent = Intent(applicationContext, MainActivity::class.java)
-
-    val contentPendingIntent = PendingIntent.getActivity(
-        applicationContext,
-        id,
-        contentIntent,
-        PendingIntent.FLAG_UPDATE_CURRENT
-    )
-
-    //Changes action opens details
+    //Intent opens details with attributes
     val detailsIntent = Intent(applicationContext, DetailActivity::class.java)
     detailsIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
     detailsIntent.putExtras(detailsBundle)
@@ -35,7 +25,7 @@ fun NotificationManager.sendNotification(id: Int, messageBody: String, detailsBu
         .setSmallIcon(R.drawable.ic_assistant_black_24dp)
         .setContentTitle(applicationContext.getString(R.string.notification_title))
         .setContentText(messageBody)
-        .setContentIntent(contentPendingIntent)
+        .setContentIntent(detailsPendingIntent)
         .setAutoCancel(true) //dismiss when click
         .addAction(
             R.drawable.ic_assistant_black_24dp,
